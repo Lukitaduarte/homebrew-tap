@@ -12,8 +12,6 @@ cask "orc-harness" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :catalina"
-
   app "Orc Harness.app"
   # The daemon ships inside the app; the app installs it as a login
   # service on first launch. `orcd pair` pairs a phone.
