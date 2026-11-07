@@ -19,9 +19,12 @@ cask "orc-harness" do
 
   # Not notarized yet (no Developer ID): lift the quarantine so the first
   # launch isn't blocked by Gatekeeper.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Orc Harness.app"]
+  app_path = "#{appdir}/Orc Harness.app"
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", app_path],
+        writable_paths: ["Orc Harness.app"],
+        writable_base:  :appdir
   end
 
   uninstall launchctl: "me.lukita.orcd",
