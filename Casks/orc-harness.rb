@@ -1,6 +1,6 @@
 cask "orc-harness" do
-  version "0.1.5"
-  sha256 "1bd380950745e45313c7ae85ceaa061d50056738f60933fa3374ef3e4e669529"
+  version "0.1.6"
+  sha256 "2b2a484631b36a4ff13a71fd09c58498c1ec3a2cc72f2e1c7ae496d4dc6b13a7"
 
   url "https://github.com/Lukitaduarte/orc-harness/releases/download/v#{version}/OrcHarness-#{version}-macos.dmg"
   name "Orc Harness"
