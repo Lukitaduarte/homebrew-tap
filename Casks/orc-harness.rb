@@ -27,10 +27,13 @@ cask "orc-harness" do
         writable_base:  :appdir
   end
 
-  uninstall launchctl: "me.lukita.orcd",
-            quit:      "me.lukita.orcharness"
+  # Only quit the app: Homebrew runs this on every upgrade too, and the
+  # service must survive upgrades (the new app updates it on launch).
+  # `brew uninstall --zap` stops it; so does `orcd uninstall`.
+  uninstall quit: "me.lukita.orcharness"
 
-  zap trash: [
+  zap launchctl: "me.lukita.orcd",
+      trash:     [
     "~/.orc",
     "~/Library/Application Support/me.lukita.orcharness",
     "~/Library/LaunchAgents/me.lukita.orcd.plist",
